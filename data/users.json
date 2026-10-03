@@ -1,0 +1,42 @@
+[
+  {
+    "user_id": "G401",
+    "card_uid": "CARD-GST-401",
+    "name": "Arthur Pendelton",
+    "email": "arthur.p@guest.org",
+    "role": "GUEST",
+    "fine_balance": 0
+  },
+  {
+    "user_id": "L301",
+    "card_uid": "CARD-LIB-301",
+    "name": "Marcus Brody",
+    "email": "marcus.brody@university.edu",
+    "role": "LIBRARIAN",
+    "fine_balance": 0
+  },
+  {
+    "user_id": "F201",
+    "card_uid": "CARD-FAC-201",
+    "name": "Dr. Elena Vance",
+    "email": "elena.vance@university.edu",
+    "role": "FACULTY",
+    "fine_balance": 0
+  },
+  {
+    "user_id": "U102",
+    "card_uid": "CARD-STU-102",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@university.edu",
+    "role": "STUDENT",
+    "fine_balance": 0
+  },
+  {
+    "user_id": "U101",
+    "card_uid": "CARD-STU-101",
+    "name": "Alex Chen",
+    "email": "alex.chen@university.edu",
+    "role": "STUDENT",
+    "fine_balance": 0
+  }
+]

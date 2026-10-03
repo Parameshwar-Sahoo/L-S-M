@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLMS - Interactive Library Automation &amp; Hardware Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo-badge">SmartLMS</div>
+            <div>
+                <h1>Automated Library Management &amp; Hardware System</h1>
+                <p class="subtitle">Linux Character Device Driver • POSIX Shared Memory • C++ Circulation Engine</p>
+            </div>
+        </div>
+        <div class="header-status">
+            <div class="status-indicator">
+                <span class="status-dot online"></span>
+                <span>Driver: <strong>/dev/libsys_driver (HAL Emulated)</strong></span>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot shm-active"></span>
+                <span>POSIX SHM: <strong>/libsys_telemetry</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-grid">
+        <!-- Telemetry Summary Cards -->
+        <section class="telemetry-bar">
+            <div class="stat-card">
+                <div class="stat-title">Active Loans</div>
+                <div class="stat-value" id="statActiveLoans">0</div>
+                <div class="stat-sub">Books currently out</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Total Checkouts</div>
+                <div class="stat-value" id="statCheckouts">0</div>
+                <div class="stat-sub">Cumulative transactions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Total Returns</div>
+                <div class="stat-value" id="statReturns">0</div>
+                <div class="stat-sub">Drop-box &amp; Desk</div>
+            </div>
+            <div class="stat-card alert-card">
+                <div class="stat-title">Security Breaches</div>
+                <div class="stat-value text-red" id="statBreaches">0</div>
+                <div class="stat-sub">Gate theft triggers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">DropBox Solenoid</div>
+                <div class="stat-value" id="statSolenoid">LOCKED</div>
+                <div class="stat-sub">Chute intake flap</div>
+            </div>
+        </section>
+
+        <!-- Main Floorplan & Hardware Visualization -->
+        <div class="content-row">
+            <!-- Physical Library Stacks & ESL Racks -->
+            <section class="card floorplan-card">
+                <div class="card-header">
+                    <h2>Physical Stacks &amp; Electronic Shelf Labels (ESL)</h2>
+                    <span class="legend">
+                        <span class="dot dot-avail"></span> Available
+                        <span class="dot dot-out"></span> Checked Out
+                        <span class="dot dot-ret"></span> Returned
+                    </span>
+                </div>
+                <div class="aisles-container">
+                    <!-- Aisle 1 -->
+                    <div class="aisle-block">
+                        <div class="aisle-title">AISLE 1: Systems &amp; C++ Engineering</div>
+                        <div class="racks-grid" id="aisle1Racks">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <!-- Aisle 2 -->
+                    <div class="aisle-block">
+                        <div class="aisle-title">AISLE 2: Architecture &amp; Theory</div>
+                        <div class="racks-grid" id="aisle2Racks">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hardware Interaction Simulators -->
+            <section class="card controls-card">
+                <div class="card-header">
+                    <h2>Hardware Kiosk &amp; Sensor Simulation</h2>
+                </div>
+
+                <!-- 1. Kiosk Checkout Simulation -->
+                <div class="simulation-group">
+                    <h3>1. Patron Self-Checkout Kiosk</h3>
+                    <div class="form-row">
+                        <label>Patron Card:</label>
+                        <select id="userSelect">
+                            <option value="U101">Alex Chen (Student - CARD-STU-101)</option>
+                            <option value="U102">Priya Sharma (Student - CARD-STU-102)</option>
+                            <option value="F201">Dr. Elena Vance (Faculty - CARD-FAC-201)</option>
+                            <option value="G401">Arthur Pendelton (Guest - CARD-GST-401)</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label>Book to Checkout:</label>
+                        <select id="checkoutBookSelect"></select>
+                    </div>
+                    <button class="btn btn-primary" id="btnCheckout">Swipe Card &amp; Checkout Book</button>
+                </div>
+
+                <!-- 2. Drop-Box Return Simulation -->
+                <div class="simulation-group">
+                    <h3>2. Smart Drop-Box Return Chute</h3>
+                    <div class="solenoid-indicator" id="solenoidBox">
+                        <span class="solenoid-icon">🔒</span>
+                        <span>ELECTROMAGNETIC SOLENOID: <strong id="solenoidText">LOCKED</strong></span>
+                    </div>
+                    <div class="form-row">
+                        <label>Returning Book RFID:</label>
+                        <select id="returnBookSelect"></select>
+                    </div>
+                    <button class="btn btn-success" id="btnDropReturn">Drop Book into Chute</button>
+                </div>
+
+                <!-- 3. Security Anti-Theft Exit Gate -->
+                <div class="simulation-group">
+                    <h3>3. Security Anti-Theft Exit Gate</h3>
+                    <div class="gate-status-box" id="gateBox">
+                        <div class="gate-strobe" id="gateStrobe"></div>
+                        <span id="gateStatusText">GATE STATUS: SECURE &amp; NORMAL</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-danger" id="btnTestBreach">Simulate Theft Passage</button>
+                        <button class="btn btn-info" id="btnTestAuthorized">Simulate Authorized Exit</button>
+                        <button class="btn btn-secondary" id="btnSilenceAlarm">Silence Siren</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Live Telemetry Stream / Log -->
+        <section class="card log-card">
+            <div class="card-header">
+                <h2>Real-Time Hardware &amp; Circulation Event Stream (POSIX Journal)</h2>
+                <button class="btn btn-sm" id="btnClearLog">Clear Log</button>
+            </div>
+            <div class="log-stream" id="logStream"></div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>SmartLMS Individual Capstone Project • Linux Kernel Device Drivers, System Programming &amp; Modern C++</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

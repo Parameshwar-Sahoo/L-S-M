@@ -1,0 +1,122 @@
+[
+  {
+    "isbn": "978-0321637734",
+    "rfid_tag": "RFID-APUE-008",
+    "title": "Advanced Programming in the UNIX Environment",
+    "author": "W. Richard Stevens, Stephen A. Rago",
+    "category": "UNIX System Calls",
+    "year": 2013,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 1,
+      "rack": 1,
+      "shelf": 1,
+      "call_number": "QA76.76.O63 S754 2013"
+    }
+  },
+  {
+    "isbn": "978-0134092669",
+    "rfid_tag": "RFID-CSAPP-007",
+    "title": "Computer Systems: A Programmer's Perspective",
+    "author": "Randal E. Bryant, David R. O'Hallaron",
+    "category": "Computer Architecture",
+    "year": 2015,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 2,
+      "rack": 3,
+      "shelf": 1,
+      "call_number": "QA76.5 .B795 2015"
+    }
+  },
+  {
+    "isbn": "978-1491903995",
+    "rfid_tag": "RFID-EMC-006",
+    "title": "Effective Modern C++",
+    "author": "Scott Meyers",
+    "category": "C++ Standards",
+    "year": 2014,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 1,
+      "rack": 2,
+      "shelf": 2,
+      "call_number": "QA76.73.C153 M49 2014"
+    }
+  },
+  {
+    "isbn": "978-0201633610",
+    "rfid_tag": "RFID-GOF-005",
+    "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+    "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+    "category": "Software Engineering",
+    "year": 1994,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 2,
+      "rack": 2,
+      "shelf": 2,
+      "call_number": "QA76.64 .D47 1994"
+    }
+  },
+  {
+    "isbn": "978-1985086593",
+    "rfid_tag": "RFID-OSTEP-004",
+    "title": "Operating Systems: Three Easy Pieces",
+    "author": "Remzi H. Arpaci-Dusseau, Andrea C. Arpaci-Dusseau",
+    "category": "Operating Systems",
+    "year": 2018,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 2,
+      "rack": 1,
+      "shelf": 1,
+      "call_number": "QA76.76.O63 A77 2018"
+    }
+  },
+  {
+    "isbn": "978-0596005900",
+    "rfid_tag": "RFID-LDD-003",
+    "title": "Linux Device Drivers (3rd Ed)",
+    "author": "Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman",
+    "category": "Kernel Engineering",
+    "year": 2005,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 1,
+      "rack": 3,
+      "shelf": 3,
+      "call_number": "QA76.76.O63 C66 2005"
+    }
+  },
+  {
+    "isbn": "978-0201704310",
+    "rfid_tag": "RFID-MCD-002",
+    "title": "Modern C++ Design",
+    "author": "Andrei Alexandrescu",
+    "category": "C++ Architecture",
+    "year": 2001,
+    "status": "AVAILABLE",
+    "location": {
+      "aisle": 1,
+      "rack": 2,
+      "shelf": 1,
+      "call_number": "QA76.73.C153 A49 2001"
+    }
+  },
+  {
+    "isbn": "978-1593272203",
+    "rfid_tag": "RFID-LPI-001",
+    "title": "The Linux Programming Interface",
+    "author": "Michael Kerrisk",
+    "category": "Systems Programming",
+    "year": 2010,
+    "status": "RETURNED_DROPBOX",
+    "location": {
+      "aisle": 1,
+      "rack": 1,
+      "shelf": 2,
+      "call_number": "QA76.76.O63 K47 2010"
+    }
+  }
+]
