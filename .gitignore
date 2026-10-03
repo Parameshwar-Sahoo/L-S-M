@@ -1,0 +1,33 @@
+# Binaries and build artifacts
+bin/
+build/
+*.o
+*.so
+*.a
+*.out
+
+# Linux Kernel Module build artifacts
+driver/*.ko
+driver/*.mod
+driver/*.mod.c
+driver/*.mod.o
+driver/*.order
+driver/*.symvers
+driver/.*.cmd
+driver/.tmp_versions/
+*.ko
+*.mod*
+Module.symvers
+modules.order
+
+# System runtime logs and sockets
+*.log
+/dev/shm/libsys_*
+
+# IDE and Editor artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+compile_commands.json

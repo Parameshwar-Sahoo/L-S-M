@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 840" width="100%" height="100%">
+  <defs>
+    <linearGradient id="clsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="clsShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="840" fill="#f8fafc" rx="12"/>
+
+  <!-- Title -->
+  <rect x="30" y="20" width="1040" height="50" rx="8" fill="#1e3a8a"/>
+  <text x="550" y="52" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">
+    SmartLMS: UML CLASS DIAGRAM (C++ DOMAIN &amp; HARDWARE ABSTRACTION)
+  </text>
+
+  <!-- ILibraryHardware (Abstract Interface) -->
+  <g transform="translate(40, 95)" filter="url(#clsShadow)">
+    <rect width="320" height="175" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <rect width="320" height="42" rx="6" fill="#eff6ff"/>
+    <text x="160" y="20" fill="#1d4ed8" font-family="system-ui, sans-serif" font-size="11" font-style="italic" text-anchor="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="160" y="36" fill="#1e3a8a" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">ILibraryHardware</text>
+    <line x1="0" y1="42" x2="320" y2="42" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="10" y="60" fill="#334155" font-family="monospace" font-size="10.5">+ virtual ~ILibraryHardware()</text>
+    <text x="10" y="77" fill="#334155" font-family="monospace" font-size="10.5">+ virtual bool connect() = 0</text>
+    <text x="10" y="94" fill="#334155" font-family="monospace" font-size="10.5">+ virtual void disconnect() = 0</text>
+    <text x="10" y="111" fill="#334155" font-family="monospace" font-size="10.5">+ virtual bool readEvent(HardwareEvent&amp;) = 0</text>
+    <text x="10" y="128" fill="#334155" font-family="monospace" font-size="10.5">+ virtual bool setDropBoxLock(bool) = 0</text>
+    <text x="10" y="145" fill="#334155" font-family="monospace" font-size="10.5">+ virtual bool setSecurityGateAlarm(bool) = 0</text>
+    <text x="10" y="162" fill="#334155" font-family="monospace" font-size="10.5">+ virtual bool simulateScan(HardwareEvent) = 0</text>
+  </g>
+
+  <!-- LinuxCharDevHardware -->
+  <g transform="translate(40, 310)" filter="url(#clsShadow)">
+    <rect width="320" height="150" rx="6" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#ecfdf5"/>
+    <text x="160" y="22" fill="#065f46" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">LinuxCharDevHardware</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#059669" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- int m_fd</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_devicePath</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- bool m_connected</text>
+    <line x1="0" y1="92" x2="320" y2="92" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="110" fill="#334155" font-family="monospace" font-size="10.5">+ openDevice(), ioctl()</text>
+    <text x="10" y="127" fill="#334155" font-family="monospace" font-size="10.5">+ read(), poll(), close()</text>
+  </g>
+
+  <!-- SimulatedHardware -->
+  <g transform="translate(40, 490)" filter="url(#clsShadow)">
+    <rect width="320" height="170" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#fffbeb"/>
+    <text x="160" y="22" fill="#92400e" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">SimulatedHardware (Mock)</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#d97706" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- std::queue&lt;HardwareEvent&gt; m_queue</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- std::mutex m_mutex</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- std::condition_variable m_cv</text>
+    <text x="10" y="101" fill="#334155" font-family="monospace" font-size="10.5">- bool m_dropBoxLocked</text>
+    <text x="10" y="118" fill="#334155" font-family="monospace" font-size="10.5">- bool m_alarmActive</text>
+    <line x1="0" y1="126" x2="320" y2="126" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="144" fill="#334155" font-family="monospace" font-size="10.5">+ In-Memory Concurrency Safe Mock</text>
+    <text x="10" y="160" fill="#334155" font-family="monospace" font-size="10.5">+ High-Fidelity Loopback Engine</text>
+  </g>
+
+  <!-- Inheritance Arrows for HAL -->
+  <line x1="200" y1="270" x2="200" y2="310" stroke="#059669" stroke-width="2" marker-start="url(#triangle)"/>
+  <line x1="120" y1="270" x2="120" y2="490" stroke="#d97706" stroke-width="2"/>
+
+  <!-- Core Entities: Book, User, Loan -->
+  <g transform="translate(390, 95)" filter="url(#clsShadow)">
+    <rect width="320" height="210" rx="6" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#e0e7ff"/>
+    <text x="160" y="22" fill="#3730a3" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Book</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_isbn</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_rfidTag</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_title, m_author</text>
+    <text x="10" y="101" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_category</text>
+    <text x="10" y="118" fill="#334155" font-family="monospace" font-size="10.5">- BookStatus m_status</text>
+    <text x="10" y="135" fill="#334155" font-family="monospace" font-size="10.5">- BookLocation m_location</text>
+    <line x1="0" y1="145" x2="320" y2="145" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="163" fill="#334155" font-family="monospace" font-size="10.5">+ isAvailable() const : bool</text>
+    <text x="10" y="180" fill="#334155" font-family="monospace" font-size="10.5">+ setStatus(BookStatus)</text>
+    <text x="10" y="197" fill="#334155" font-family="monospace" font-size="10.5">+ getLocationString() const</text>
+  </g>
+
+  <!-- User Class -->
+  <g transform="translate(390, 325)" filter="url(#clsShadow)">
+    <rect width="320" height="185" rx="6" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#ede9fe"/>
+    <text x="160" y="22" fill="#5b21b6" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">User</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_userId</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_cardUid</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_name, m_email</text>
+    <text x="10" y="101" fill="#334155" font-family="monospace" font-size="10.5">- UserRole m_role</text>
+    <text x="10" y="118" fill="#334155" font-family="monospace" font-size="10.5">- double m_fineBalance</text>
+    <line x1="0" y1="126" x2="320" y2="126" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="144" fill="#334155" font-family="monospace" font-size="10.5">+ getMaxBorrowLimit() const : int</text>
+    <text x="10" y="161" fill="#334155" font-family="monospace" font-size="10.5">+ getLoanDurationDays() const : int</text>
+    <text x="10" y="178" fill="#334155" font-family="monospace" font-size="10.5">+ addFine(double), payFine(double)</text>
+  </g>
+
+  <!-- LoanTransaction Class -->
+  <g transform="translate(390, 530)" filter="url(#clsShadow)">
+    <rect width="320" height="150" rx="6" fill="#ffffff" stroke="#ec4899" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#fdf2f8"/>
+    <text x="160" y="22" fill="#9d174d" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">LoanTransaction</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_txId</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- std::string m_isbn, m_userId</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- time_t m_checkoutTime, m_dueTime</text>
+    <text x="10" y="101" fill="#334155" font-family="monospace" font-size="10.5">- bool m_isReturned</text>
+    <line x1="0" y1="109" x2="320" y2="109" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="127" fill="#334155" font-family="monospace" font-size="10.5">+ isOverdue() const : bool</text>
+    <text x="10" y="144" fill="#334155" font-family="monospace" font-size="10.5">+ calculateFine() const : double</text>
+  </g>
+
+  <!-- Manager Classes: CatalogManager, CirculationManager, SecurityGateManager -->
+  <g transform="translate(740, 95)" filter="url(#clsShadow)">
+    <rect width="320" height="190" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#e0f2fe"/>
+    <text x="160" y="22" fill="#0369a1" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">CatalogManager</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- unordered_map&lt;ISBN, Book&gt; m_books</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- unordered_map&lt;RFID, ISBN&gt; m_rfidIndex</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- mutable std::mutex m_mutex</text>
+    <line x1="0" y1="92" x2="320" y2="92" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="110" fill="#334155" font-family="monospace" font-size="10.5">+ addBook(Book) : bool</text>
+    <text x="10" y="127" fill="#334155" font-family="monospace" font-size="10.5">+ findByIsbn(isbn) : Book*</text>
+    <text x="10" y="144" fill="#334155" font-family="monospace" font-size="10.5">+ findByRfid(rfid) : Book*</text>
+    <text x="10" y="161" fill="#334155" font-family="monospace" font-size="10.5">+ searchByTitleOrAuthor(query)</text>
+    <text x="10" y="178" fill="#334155" font-family="monospace" font-size="10.5">+ getAllBooks() const</text>
+  </g>
+
+  <!-- CirculationManager -->
+  <g transform="translate(740, 305)" filter="url(#clsShadow)">
+    <rect width="320" height="215" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#dcfce7"/>
+    <text x="160" y="22" fill="#15803d" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">CirculationManager</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- CatalogManager&amp; m_catalog</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- unordered_map&lt;UID, User&gt; m_users</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- vector&lt;LoanTransaction&gt; m_loans</text>
+    <text x="10" y="101" fill="#334155" font-family="monospace" font-size="10.5">- ILibraryHardware* m_hardware</text>
+    <text x="10" y="118" fill="#334155" font-family="monospace" font-size="10.5">- mutable std::mutex m_mutex</text>
+    <line x1="0" y1="126" x2="320" y2="126" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="144" fill="#334155" font-family="monospace" font-size="10.5">+ checkoutBook(isbn, userId) : bool</text>
+    <text x="10" y="161" fill="#334155" font-family="monospace" font-size="10.5">+ returnBookByRfid(rfid) : bool</text>
+    <text x="10" y="178" fill="#334155" font-family="monospace" font-size="10.5">+ processDropBoxReturn(event) : bool</text>
+    <text x="10" y="195" fill="#334155" font-family="monospace" font-size="10.5">+ getActiveLoans() const</text>
+  </g>
+
+  <!-- SecurityGateManager -->
+  <g transform="translate(740, 540)" filter="url(#clsShadow)">
+    <rect width="320" height="150" rx="6" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+    <rect width="320" height="32" rx="6" fill="#ffedd5"/>
+    <text x="160" y="22" fill="#c2410c" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">SecurityGateManager</text>
+    <line x1="0" y1="32" x2="320" y2="32" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#334155" font-family="monospace" font-size="10.5">- CirculationManager&amp; m_circulation</text>
+    <text x="10" y="67" fill="#334155" font-family="monospace" font-size="10.5">- ILibraryHardware* m_hardware</text>
+    <text x="10" y="84" fill="#334155" font-family="monospace" font-size="10.5">- uint32_t m_alarmCount</text>
+    <line x1="0" y1="92" x2="320" y2="92" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="10" y="110" fill="#334155" font-family="monospace" font-size="10.5">+ handleGateScan(rfidTag) : bool</text>
+    <text x="10" y="127" fill="#334155" font-family="monospace" font-size="10.5">+ triggerAlarm(reason)</text>
+    <text x="10" y="144" fill="#334155" font-family="monospace" font-size="10.5">+ resetAlarm()</text>
+  </g>
+
+  <!-- Bottom Relationships Info Banner -->
+  <rect x="40" y="720" width="1020" height="85" rx="8" fill="#1e293b"/>
+  <text x="60" y="747" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">DESIGN PATTERNS APPLIED:</text>
+  <text x="60" y="768" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11.5">
+    • Abstract Factory &amp; Strategy: ILibraryHardware decouples Linux kernel character driver from simulated mock hardware.
+  </text>
+  <text x="60" y="788" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11.5">
+    • RAII &amp; Thread Safety: Resource Acquisition Is Initialization for file descriptors, mutexes, and POSIX shared memory segments.
+  </text>
+</svg>
